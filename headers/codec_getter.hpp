@@ -11,8 +11,9 @@ using std::string;
 using std::unique_ptr;
 using std::make_unique;
 namespace CodecS{
-    class CodecGetter{
+    class CodecGetter final{
         public:
+            CodecGetter() = delete;
             static inline Codec& getInstance(const string& codec_name){
                 static map<string, unique_ptr<Codec>> instance_map_;
                 if(!instance_map_.count(codec_name)){
