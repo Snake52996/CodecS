@@ -2,6 +2,7 @@ _Pragma("once");
 #include<codec.hpp>
 #include<base64_codec.hpp>
 #include<hex_codec.hpp>
+#include<uri_codec.hpp>
 #include<map>
 #include<string>
 #include<memory>
@@ -21,6 +22,8 @@ namespace CodecS{
                         instance_map_[codec_name] = make_unique<Base64Codec>();
                     else if(codec_name == "hex")
                         instance_map_[codec_name] = make_unique<HexCodec>();
+                    else if(codec_name == "uri")
+                        instance_map_[codec_name] = make_unique<UriCodec>();
                     else throw std::runtime_error("unknown codec");
                 }
                 return *instance_map_[codec_name];
