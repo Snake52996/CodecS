@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.16)
 project(CodecS)
-aux_source_directory(. SRC)
+file(GLOB SRC "*_codec.cpp")
 add_library(${PROJECT_NAME} STATIC ${SRC})
 target_include_directories(${PROJECT_NAME} PUBLIC headers)
